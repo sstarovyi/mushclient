@@ -44,6 +44,7 @@ find_non_standard_encoding.lua
 *.GID
 *.suo
 *.clw
+*.pch
 
 #
 #  Notes for me:
