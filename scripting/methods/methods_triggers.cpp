@@ -119,7 +119,7 @@ CTrigger * trigger_item;
 
   SortTriggers ();
 
-  if (!m_CurrentPlugin && !bTemporary) // plugin mods don't really count
+  if (!bTemporary)
     SetModifiedFlag (TRUE);   // document has changed
   return eOK;
 }    // end of CMUSHclientDoc::DeleteTrigger
@@ -220,8 +220,7 @@ bool bReplace = false;
   GetTriggerMap ().SetAt (strTriggerName, trigger_item = new CTrigger);
 
   if ((Flags & eTemporary) == 0)
-    if (!m_CurrentPlugin) // plugin mods don't really count
-      SetModifiedFlag (TRUE);
+    SetModifiedFlag (TRUE);
 
   trigger_item->nUpdateNumber    = App.GetUniqueNumber ();   // for concurrency checks
   trigger_item->strInternalName  = strTriggerName;    // for deleting one-shot triggers
@@ -307,8 +306,7 @@ CTrigger * trigger_item;
   trigger_item->bEnabled = Enabled != 0;                // set enabled flag
   trigger_item->nUpdateNumber   = App.GetUniqueNumber ();   // for concurrency checks
 
-  if (!m_CurrentPlugin) // plugin mods don't really count
-    SetModifiedFlag (TRUE);   // document has changed
+  SetModifiedFlag (TRUE);   // document has changed
   return eOK;
 }     // end of CMUSHclientDoc::EnableTrigger
 
@@ -582,8 +580,7 @@ long CMUSHclientDoc::EnableTriggerGroup(LPCTSTR GroupName, BOOL Enabled)
     }   // end of triggers
 
   if (iCount)
-    if (!m_CurrentPlugin) // plugin mods don't really count
-      SetModifiedFlag (TRUE);   // document has changed
+    SetModifiedFlag (TRUE);   // document has changed
 
   return iCount;
 }   // end of EnableTriggerGroup
@@ -631,8 +628,7 @@ long CMUSHclientDoc::DeleteTriggerGroup(LPCTSTR GroupName)
   if (!vToDelete.empty ())
     {
     SortTriggers ();
-    if (!m_CurrentPlugin) // plugin mods don't really count
-      SetModifiedFlag (TRUE);   // document has changed
+    SetModifiedFlag (TRUE);   // document has changed
     }
 
   return vToDelete.size ();
@@ -801,8 +797,7 @@ bool bChanged;
 
     if (bChanged)
       {
-      if (!m_CurrentPlugin) // plugin mods don't really count
-        SetModifiedFlag (TRUE);   // document has changed
+      SetModifiedFlag (TRUE);   // document has changed
       trigger_item->nUpdateNumber    = App.GetUniqueNumber ();   // for concurrency checks
       }
 
@@ -890,8 +885,7 @@ bool bChanged;
 
       if (bChanged)
         {
-        if (!m_CurrentPlugin) // plugin mods don't really count
-          SetModifiedFlag (TRUE);   // document has changed
+        SetModifiedFlag (TRUE);   // document has changed
         trigger_item->nUpdateNumber    = App.GetUniqueNumber ();   // for concurrency checks
         }
 

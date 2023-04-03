@@ -2536,7 +2536,7 @@ void CMUSHclientDoc::Load_Plugin_XML (CXMLelement & parent)
           try
             {
             Load_World_XML (*ar, 
-                            XML_VARIABLES | XML_NO_PLUGINS | XML_OVERWRITE,
+                            XML_TRIGGERS | XML_VARIABLES | XML_NO_PLUGINS | XML_OVERWRITE,
                             0);
             }
           catch (CArchiveException* e)

@@ -368,9 +368,9 @@ void CMUSHclientDoc::Save_Triggers_XML (CArchive& ar)
   SortTriggers ();
 
   // save them in trigger sequence order
-  for (int i = 0; i < m_TriggerMap.GetCount (); i++)
+  for (int i = 0; i < GetTriggerMap ().GetCount (); i++)
      {
-     CTrigger * t = m_TriggerArray [i];
+     CTrigger * t = GetTriggerArray () [i];
 
      if (t->bTemporary || t->bIncluded)   // don't save temporary triggers
         continue;

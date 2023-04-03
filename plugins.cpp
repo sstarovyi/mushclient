@@ -819,7 +819,7 @@ bool bError = true;
                 (LPCTSTR) m_strName,
                 (LPCTSTR) m_pDoc->m_mush_name);
 
-    m_pDoc->Save_World_XML (*ar, XML_VARIABLES, strComment);
+    m_pDoc->Save_World_XML (*ar, XML_VARIABLES | XML_TRIGGERS, strComment);
 
     bError = false;
 
